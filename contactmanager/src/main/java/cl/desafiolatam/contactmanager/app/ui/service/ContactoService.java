@@ -15,5 +15,9 @@ public interface ContactoService {
 
 	public boolean borrarContacto(int id);
 
+	public String getMensaje();
+
+	public void setMensaje(String mensaje);
+
 
 }

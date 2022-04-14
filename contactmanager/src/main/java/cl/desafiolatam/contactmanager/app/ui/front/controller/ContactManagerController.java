@@ -1,6 +1,5 @@
 package cl.desafiolatam.contactmanager.app.ui.front.controller;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +33,17 @@ public class ContactManagerController {
 	}
 	
 	@RequestMapping(value = "/contactManager/addContact", method= {RequestMethod.POST})
-	public String agregarContacto(ModelMap model,@ModelAttribute("contactoDto")ContactoDto contactoDto) {		
+	public String agregarContacto(ModelMap model,@ModelAttribute("contactoDto")ContactoDto contactoDto) {
+		
 		model.addAttribute("listaContactoDTO",contactoDelegate.agregarContacto(contactoDto));
+		model.addAttribute("mensajeAccion",contactoDelegate.getMensaje());
 		return "forward:/contactManager";
 	}
 	
 	@RequestMapping(value = "/contactManager/deleteContact", method= {RequestMethod.GET})
 	public String eliminarsAlguien(ModelMap model, @RequestParam("id") int id) {
 		model.addAttribute("listaContactoDTO",contactoDelegate.borrarContacto(id));
+		model.addAttribute("mensajeAccion",contactoDelegate.getMensaje());
 		return "forward:/contactManager";
 	}
 

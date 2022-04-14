@@ -15,6 +15,7 @@ public class ContactoServiceImpl implements ContactoService{
 	private List<ContactoDto> listaContacto;
 	@Autowired
 	private ContactoDto contactoDto;
+	private String mensaje;
 	@Override
 	public boolean agregarContacto(ContactoDto contactoDto) {
 		// TODO Auto-generated method stub
@@ -23,7 +24,7 @@ public class ContactoServiceImpl implements ContactoService{
 		boolean add = false;
 		if (listaContacto.get(0).getContacto().getId() == 0 ) {
 			contactoDto.setIdContacto(i);
-			contactoDto.setMensaje("Contacto Agregado");
+			setMensaje("Contacto Agregado");
 			listaContacto.remove(0);
 			listaContacto.add(contactoDto);
 			add = true;
@@ -33,7 +34,7 @@ public class ContactoServiceImpl implements ContactoService{
 			ContactoDto lastElement = listaContacto.get(lastIdx);
 			i = lastElement.getContacto().getId();
 			contactoDto.setIdContacto(i+1);
-			contactoDto.setMensaje("Contacto Agregado");
+			setMensaje("Contacto Agregado");
 			listaContacto.add(contactoDto);
 			add = true;
 		}
@@ -59,18 +60,28 @@ public class ContactoServiceImpl implements ContactoService{
 					pDto = (ContactoDto) iterator.next();
 					if (pDto.getContacto().getId() == id) {	
 						listaContacto.remove(i);
-						contactoDto.setMensaje("Contacto Borrado");
+						setMensaje("Contacto Borrado");
 						break;
 					}
 					i++;
 			}
 			
 			if (listaContacto.isEmpty()) {
-				contactoDto.setMensaje("Ya no Hay Registros");
+				setMensaje("Ya no Hay Registros");
 				listaContacto.add(contactoDto);
 			}
 		
 		return borrar;
+	}
+	
+	@Override
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	@Override
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 	
 	

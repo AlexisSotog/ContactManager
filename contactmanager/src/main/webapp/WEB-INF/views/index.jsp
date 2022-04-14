@@ -22,6 +22,9 @@
 	
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/css/styles.css">
+	<script type="text/javascript">
+		let mensaje = "${mensajeAccion}"; 
+	</script>
 <title>Insert title here</title>
 </head>
 <body>

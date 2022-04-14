@@ -11,5 +11,6 @@ public interface ContactoDelegate {
 	public List<ContactoDto> getContactos();
 	public List<ContactoDto> agregarContacto(ContactoDto contactoDto);
 	public List<ContactoDto> borrarContacto(int id);
+	public String getMensaje();
 
 }

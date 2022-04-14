@@ -43,5 +43,11 @@ public class ContactoDelegateImpl implements ContactoDelegate{
 			return contactoService.getContacto();
 		}
 	}
+	
+	@Override
+	public String getMensaje() {
+		return contactoService.getMensaje();
+				
+	}
 
 }
