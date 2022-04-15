@@ -45,11 +45,14 @@
 <body>
 	<div class="container" style="border:1px;">	
 		<form:form action="/contactManager/addContact" method="POST" modelAttribute="contactoDto">
+		<fieldset>
+			<legend>Mantenedor de Contactos:</legend>
 			<div class="container m-5">
 				Nombre Persona: <form:input path="contacto.nombre" id="idNombre" name="nombre" cssClass="m-2"/>
 				Apellido Paterno: <form:input path="contacto.apellidoPaterno" id="idApellidoPaterno" cssClass="m-2" name="apellidoPaterno"/>
 				Apellido Materno: <form:input path="contacto.apellidoMaterno" id="idApellidoMaterno" cssClass="m-2" name="apellidoMaterno"/>
 			</div>
+		
 			<div class="container">
 			Direccion : <form:input path="contacto.direccion" id="idDireccion" cssClass="m-2" name="direccion"/>
 			Telefono: <form:input path="contacto.telefono" id="idTelefono" cssClass="m-2" name="telefono"/>
@@ -59,9 +62,12 @@
 				<form:button id="idButton" type="submit" data-toggle="modal" data-target="#modalAlerta">Agregar</form:button>
 				<input type="button" value="Eliminar" data-toggle="modal" data-target="#modalAlerta" onclick="deleteRow()">
 			</div>
+		</fieldset>
 		</form:form>
 		
 	</div>
+	<fieldset>
+			<legend>Lista de Contactos</legend>
 	<div class="container">
 		<table id="idTableSelect" class="table table-hover" >
 		<tr>
@@ -88,7 +94,8 @@
 		</c:if>	
 				                        
 	</table>
-	</div>		
+	</div>
+	</fieldset>		
 	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/personas.js"></script>
 </body>
 </html>
