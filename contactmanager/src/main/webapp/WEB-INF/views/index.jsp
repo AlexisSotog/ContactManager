@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 	<title>Login Page</title>
    <!--Made with love by Mutiullah Samim -->
-   
+      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<!--Bootsrap 4 CDN-->
 	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -20,8 +20,23 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	
+	
+	<!-- JavaScript -->
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	<!-- Default theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+	<!-- Semantic UI theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+	<!-- Bootstrap theme -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+	
+	
 	<!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/css/styles.css">
+	
 	<script type="text/javascript">
 		let mensaje = "${mensajeAccion}"; 
 	</script>
@@ -41,8 +56,8 @@
 			</div>
 			<hr>
 			<div class="m-2">
-				<form:button id="idButton" type="submit">Agregar</form:button>
-				<input type="button" value="Eliminar" onclick="deleteRow()">
+				<form:button id="idButton" type="submit" data-toggle="modal" data-target="#modalAlerta">Agregar</form:button>
+				<input type="button" value="Eliminar" data-toggle="modal" data-target="#modalAlerta" onclick="deleteRow()">
 			</div>
 		</form:form>
 		
@@ -73,8 +88,7 @@
 		</c:if>	
 				                        
 	</table>
-	</div>	
-	
+	</div>		
 	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/personas.js"></script>
 </body>
 </html>
